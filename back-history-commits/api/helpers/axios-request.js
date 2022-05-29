@@ -32,7 +32,8 @@ module.exports = {
     // TODO
     console.log(options)
     try {
-      const response = await axios(url,{options})
+      console.log(options)
+      const response = await axios(url,options)
       return exits.success(response.data)
     } catch (error) {
       sails.log.info('***********************',error)

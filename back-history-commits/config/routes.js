@@ -12,12 +12,18 @@ module.exports.routes = {
 
     'GET /api/getUserInfo':{
         controller : 'UserController',
-        action : 'getUser'
+        action : 'getUser',
+        cors: {
+            allowOrigins: '*',
+          }
     },
 
     'GET /api/getCommits':{
         controller : 'UserController',
-        action : 'getCommits'
+        action : 'getCommits',
+        cors: {
+            allowOrigins: '*',
+          }
     }
 
 };
