@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react'
 
 const Perfil = () => {
 
-    const [photo, setPhoto] = useState('')
     const [info, setInfo] = useState({
         avatar_url : '',
         company:'',
@@ -14,6 +13,7 @@ const Perfil = () => {
       const getApi = async () => {
         const urlApi = 'http://localhost:1337/api/getUserInfo'
         const resp = await axios(urlApi);
+        console.log(resp)
         setInfo({
             avatar_url : resp.data.response.avatar_url,
             company:resp.data.response.company,
@@ -27,8 +27,8 @@ const Perfil = () => {
     },[])
     
   return (
-    <div className='p-10'>
-        <img src={info.avatar_url} className='border border-slate-800 rounded-full shadow-md p-5 ' />
+    <div className='p-10 '>
+        <img src={info.avatar_url} className='border-full  rounded-full object-cover p-5 ' />
         <p>{info.name}</p>
     </div>
   )

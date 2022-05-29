@@ -24,6 +24,14 @@ module.exports.routes = {
         cors: {
             allowOrigins: '*',
           }
+    },
+    'GET /api/getRepos':{
+        controller : 'UserController',
+        action : 'getRepos',
+        cors: {
+            allowOrigins: '*',
+          }
     }
+
 
 };

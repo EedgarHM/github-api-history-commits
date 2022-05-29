@@ -8,7 +8,14 @@ module.exports = {
   
     getUser : async (req, res) =>{
         const axiosConfig = ' https://api.github.com/users/eedgarhm';
-        const response = await sails.helpers.axiosRequest(axiosConfig)
+        const options = {
+            method: 'get',
+            headers : {
+                "accept" : "application/vnd.github.v3+json",
+                "Authorization": "Token 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"
+            }
+        };
+        const response = await sails.helpers.axiosRequest(axiosConfig, options)
         res.ok({response})
     },
 
@@ -18,7 +25,21 @@ module.exports = {
             method: 'get',
             headers : {
                 "accept" : "application/vnd.github.v3+json",
-                "Authorization": "Token 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 "
+                "Authorization": "Token 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"
+            }
+        };
+        const response = await sails.helpers.axiosRequest(url,options)
+        console.log(response)
+        res.ok({response})
+    },
+
+    getRepos: async (req, res) => {
+        const url = 'https://api.github.com/users/EedgarHM/repos';
+        const options = {
+            method: 'get',
+            headers : {
+                "accept" : "application/vnd.github.v3+json",
+                "Authorization": "Token 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"
             }
         };
         const response = await sails.helpers.axiosRequest(url,options)
