@@ -9,9 +9,12 @@ module.exports = {
 
 
   inputs: {
-    axiosConfig : {
-      type: 'json',
+    url : {
+      type: 'string',
       required: true
+    },
+    options: {
+      type:'json'
     }
   },
 
@@ -25,13 +28,14 @@ module.exports = {
   },
 
 
-  fn: async function ({axiosConfig}, exits) {
+  fn: async function ({url,options}, exits) {
     // TODO
+    console.log(options)
     try {
-      const response = await axios(axiosConfig)
+      const response = await axios(url,{options})
       return exits.success(response.data)
     } catch (error) {
-      sails.log.info('***********************')
+      sails.log.info('***********************',error)
       return exits.success(error.toString())
     }
   }
