@@ -54,6 +54,6 @@ module.exports.globals = {
     GET_COMMITS : 'https://api.github.com/repos/eedgarhm/github-api-history-commits/commits',
     GET_REPOS : 'https://api.github.com/users/EedgarHM/repos'
   },
-  TOKEN : INSERT_HERE_YOUR_TOKEN
+  TOKEN : 'INSERT_HERE_YOUR_TOKEN'
   
 };
