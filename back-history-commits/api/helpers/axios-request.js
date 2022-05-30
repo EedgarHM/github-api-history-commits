@@ -1,4 +1,11 @@
+/**
+ * Function to execute querys by axios, needs two params url and option
+ * @url its the link to send request
+ * @options object that can be pass to axios where exists types like headers
+ */
 const axios = require('axios');
+
+
 module.exports = {
 
 
@@ -29,10 +36,7 @@ module.exports = {
 
 
   fn: async function ({url,options}, exits) {
-    // TODO
-    console.log(options)
     try {
-      console.log(options)
       const response = await axios(url,options)
       return exits.success(response.data)
     } catch (error) {

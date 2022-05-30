@@ -4,46 +4,47 @@
  * @description :: Server-side actions for handling incoming requests.
  * @help        :: See https://sailsjs.com/docs/concepts/actions
  */
+
+const { URLS, TOKEN } = sails.config.globals;
 module.exports = {
+ 
   
     getUser : async (req, res) =>{
-        const axiosConfig = ' https://api.github.com/users/eedgarhm';
+        const url = URLS.GET_USER;
         const options = {
             method: 'get',
             headers : {
                 "accept" : "application/vnd.github.v3+json",
-                "Authorization": "Token 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"
+                "Authorization":`Token ${TOKEN}`
             }
         };
-        const response = await sails.helpers.axiosRequest(axiosConfig, options)
+        const response = await sails.helpers.axiosRequest(url, options)
         res.ok({response})
     },
 
     getCommits: async (req, res) => {
-        const url = 'https://api.github.com/repos/eedgarhm/github-api-history-commits/commits';
+        const url = URLS.GET_COMMITS;
         const options = {
             method: 'get',
             headers : {
                 "accept" : "application/vnd.github.v3+json",
-                "Authorization": "Token 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"
+                "Authorization":`Token ${TOKEN}`
             }
         };
         const response = await sails.helpers.axiosRequest(url,options)
-        console.log(response)
         res.ok({response})
     },
 
     getRepos: async (req, res) => {
-        const url = 'https://api.github.com/users/EedgarHM/repos';
+        const url = URLS.GET_REPOS;
         const options = {
             method: 'get',
             headers : {
                 "accept" : "application/vnd.github.v3+json",
-                "Authorization": "Token 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"
+                "Authorization":`Token ${TOKEN}`
             }
         };
         const response = await sails.helpers.axiosRequest(url,options)
-        console.log(response)
         res.ok({response})
     }
 };
