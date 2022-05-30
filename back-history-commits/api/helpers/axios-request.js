@@ -8,13 +8,8 @@ const axios = require('axios');
 
 module.exports = {
 
-
   friendlyName: 'Axios request',
-
-
   description: '',
-
-
   inputs: {
     url : {
       type: 'string',
@@ -40,7 +35,7 @@ module.exports = {
       const response = await axios(url,options)
       return exits.success(response.data)
     } catch (error) {
-      sails.log.info('***********************',error)
+      sails.log.info('### RESPONSE ERROR',error)
       return exits.success(error.toString())
     }
   }

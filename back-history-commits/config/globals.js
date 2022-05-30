@@ -55,5 +55,4 @@ module.exports.globals = {
     GET_REPOS : 'https://api.github.com/users/EedgarHM/repos'
   },
   TOKEN : 'INSERT_HERE_YOUR_TOKEN'
-  
 };
