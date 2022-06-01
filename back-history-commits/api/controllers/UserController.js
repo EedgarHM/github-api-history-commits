@@ -1,7 +1,7 @@
 /**
  * UserController
  *
- * @description :: Server-side actions for handling incoming requests.
+ * @description :: Returns data from the user
  * @help        :: See https://sailsjs.com/docs/concepts/actions
  */
 
@@ -18,8 +18,14 @@ module.exports = {
                 "Authorization":`Token ${TOKEN}`
             }
         };
-        const response = await sails.helpers.axiosRequest(url, options)
-        res.ok({response})
+        try {
+            const response = await sails.helpers.axiosRequest(url,options)
+            return res.status(200).ok({response})
+            
+        } catch (error) {
+            console.log('Error Type: ',error)
+            return rea.errorServer({error})
+        }
     },
 
     getCommits: async (req, res) => {
@@ -31,8 +37,14 @@ module.exports = {
                 "Authorization":`Token ${TOKEN}`
             }
         };
-        const response = await sails.helpers.axiosRequest(url,options)
-        res.ok({response})
+        try {
+            const response = await sails.helpers.axiosRequest(url,options)
+            return res.status(200).ok({response})
+            
+        } catch (error) {
+            console.log('Error Type: ',error)
+            return rea.errorServer({error})
+        }
     },
 
     getRepos: async (req, res) => {
@@ -44,8 +56,14 @@ module.exports = {
                 "Authorization":`Token ${TOKEN}`
             }
         };
-        const response = await sails.helpers.axiosRequest(url,options)
-        res.ok({response})
+        try {
+            const response = await sails.helpers.axiosRequest(url,options)
+            return res.status(200).ok({response})
+            
+        } catch (error) {
+            console.log('Error Type: ',error)
+            return rea.errorServer({error})
+        }
     }
 };
 

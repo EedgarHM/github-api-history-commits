@@ -4,6 +4,7 @@
  * @options object that can be pass to axios where exists types like headers
  */
 const axios = require('axios');
+const handleError = require('../middlewares/handleError');
 
 
 module.exports = {
@@ -35,8 +36,9 @@ module.exports = {
       const response = await axios(url,options)
       return exits.success(response.data)
     } catch (error) {
-      sails.log.info('### RESPONSE ERROR',error)
-      return exits.success(error.toString())
+      sails.log.info(handleError.urlInvalid(error))
+      
+      return exits.success(handleError.urlInvalid(error))
     }
   }
 
